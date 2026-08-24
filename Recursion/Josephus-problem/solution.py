@@ -1,18 +1,28 @@
 class Solution:
     def josephus(self, n, k):
         # code here
-        def helpfunc(person, k, index):
-            if len(person) == 1:
-                return person[0]
-            
-            index = (index + k - 1) % len(person)
-            person.pop(index)
-            
-            return helpfunc(person, k, index)
-
-        person = []
+        k -= 1
+        arr = [0] * n
+        for i in range(n):
+            arr[i] = 1
         
-        for i in range(1, n + 1):
-            person.append(i)
-        return helpfunc(person, k, 0)
+        cnt = 0
+        cut = 0
         
+        num = 1
+        while (cnt < (n - 1)):
+            while (num <= k):
+                cut += 1
+                cut = cut % n
+                if (arr[cut] == 1):
+                    num += 1
+            num = 1
+            arr[cut] = 0
+            cnt += 1
+            cut += 1
+            
+            cut = cut % n
+            while (arr[cut] == 0):
+                cut += 1
+                cut = cut % n
+        return cut + 1
