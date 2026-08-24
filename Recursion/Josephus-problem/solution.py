@@ -7,12 +7,10 @@ class Solution:
                 
             index = (index + k - 1) % len(person)
             person.pop(index)
-            
             return helpingfunc(person, k, index)
-        
         person = []
-        
+        index = 0
         for i in range(1, n + 1):
             person.append(i)
-        
-        return helpingfunc(person, k, 0)
+            
+        return helpingfunc(person, k, index)
