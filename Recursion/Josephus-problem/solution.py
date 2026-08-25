@@ -1,16 +1,11 @@
 class Solution:
     def josephus(self, n, k):
         # code here
-        def helpingfunc(person, k, index):
-            if len(person) == 1:
-                return person[0]
-                
-            index = (index + k - 1) % len(person)
-            person.pop(index)
-            return helpingfunc(person, k, index)
-        person = []
-        index = 0
-        for i in range(1, n + 1):
-            person.append(i)
+        i = 1
+        ans = 0
+        
+        while (i <= n):
+            ans = (ans + k) % i
+            i += 1
             
-        return helpingfunc(person, k, index)
+        return ans + 1
