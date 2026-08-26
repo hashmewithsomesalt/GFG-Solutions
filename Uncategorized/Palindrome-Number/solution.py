@@ -1,10 +1,10 @@
 class Solution:
     def isPalindrome(self, n):
 		# code here
-		mystr = str(abs(n))
+		reverse = 0
+		temp = abs(n)
 		
-		for i in range((len(mystr)// 2) + 1):
-		    if mystr[i] != mystr[len(mystr) - i - 1]:
-		        return False
-		return True
-		    
+		while (temp > 0):
+		    reverse = (reverse * 10) + temp % 10
+		    temp //= 10
+	    return reverse == abs(n)
