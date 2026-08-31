@@ -3,8 +3,10 @@ class Solution:
         # code here
         ans = []
         highest = float('-inf')
+        
         for i in range(len(arr) - 1, -1, -1):
-            if (arr[i] >= highest):
+            if arr[i] >= highest:
                 ans.append(arr[i])
                 highest = arr[i]
+                
         return ans[::-1]
